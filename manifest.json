@@ -1,0 +1,6 @@
+{
+  "name": "Image blur",
+  "description": "Blur out images with a click of a button",
+  "version": "0.1",
+  "manifest_version": 3
+}
