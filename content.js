@@ -2,6 +2,14 @@
 
 console.log("Chrome extension is active.");
 
+// TODO: add a listener for a button from the background service worker
+//       to blur out images only when you need to and not immediately
+// TODO: remove custom css class when the button was toggled off
+// TODO: add sliders for image parameters, for example:
+//       1 <= imageBlue <= 20 (px)
+//       1 <= imageOpacity < 100 (%)
+//       0.1 <= imageTransition <= 5 (s)
+
 // Tuned parameters
 let imageBlur = 10;
 let imageOpacity = 50;
