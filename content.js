@@ -1,31 +1,39 @@
 class Logger {
   dev = true; // true -> development; false -> production
 
-  log(msg, type = "log") {
+  log(data, type = "log") {
     if (this.dev == false) return;
-    switch (type) {
-      case "log":
-        console.log(msg);
-        break;
-      case "warn":
-        console.warn(msg);
-        break;
-      case "error":
-        console.error(msg);
-        break;
-      case "table":
-        console.table(msg);
-        break;
-      default:
-        console.log(msg);
-    }
+    if (typeof console[type] === "undefined") return;
+    console[type](data);
   }
 }
 
-// Execute and manipulate code when the page loads.
+const cnsl = [
+  "log",
+  "warn",
+  "error",
+  "table",
+  "assert",
+  "clear",
+  "count",
+  "group",
+  "groupCollapsed",
+  "groupEnd",
+  "info",
+  "time",
+  "timeEnd",
+  "trace",
+];
+
+cnsl.forEach((type) => {
+  if (typeof Logger.prototype[type] === "function") return;
+  Logger.prototype[type] = (msg) => this.log(msg, type);
+});
 
 const logger = new Logger();
 logger.dev = false;
+
+// Execute and manipulate code when the page loads.
 
 logger.log("Chrome extension is active.");
 
