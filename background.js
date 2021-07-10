@@ -6,20 +6,17 @@ console.log("Image Blur extension is running.");
 let isChrome = typeof chrome !== "undefined" && typeof browser === "undefined";
 let ext = isChrome ? chrome : browser; // Extension API
 
-// TODO: add an event listener to a button and
-//       execute code in content.js
-
-let action = isChrome ? chrome.action : browser.browserAction;
-
-action.onClicked.addListener(buttonClicked);
-
+// Tuned default parameters
+let imageBlur = 10;
+let imageOpacity = 50;
+let imageContrast = 50;
+let imageTransition = 0.3;
 let blur = true;
 
-function buttonClicked(tab) {
-  let msg = {
-    text: "blur-toggle",
-    blur: blur,
-  };
-  blur = !blur; // toggle between true and false
-  chrome.tabs.sendMessage(tab.id, msg);
-}
+ext.storage.local.set({ imageBlur });
+ext.storage.local.set({ imageOpacity });
+ext.storage.local.set({ imageContrast });
+ext.storage.local.set({ imageTransition });
+ext.storage.local.set({ blur });
+
+//ext.runtime.onInstalled.addListener(() => {});

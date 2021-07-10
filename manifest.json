@@ -10,9 +10,12 @@
     }
   ],
   "background": {
-    "service_worker": "background.js", "type": "module"
+    "service_worker": "background.js"
   },
   "action": {
-    "default_icon": "icon.png"
-  }
+    "default_icon": "icon.png",
+    "default_popup": "popup/popup.html",
+    "default_title": "Image blur"
+  },
+  "permissions": ["tabs", "storage"]
 }
