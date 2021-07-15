@@ -111,9 +111,10 @@ if (style.styleSheet) {
 document.getElementsByTagName("head")[0].appendChild(style);
 
 let customStyles = [];
-for (i in Object.values(document.getElementsByTagName("style"))) {
-  let s = document.getElementsByTagName("style")[i];
-  if (s.innerText.includes("._image_blur_class")) {
+let styles = document.getElementsByTagName("style");
+for (i in Object.values(styles)) {
+  let s = styles[i];
+  if (s && s.innerHTML && s.innerText.includes("._image_blur_class")) {
     customStyles.push(s);
   }
 }
