@@ -31,7 +31,7 @@ cnsl.forEach((type) => {
 });
 
 const logger = new Logger();
-logger.dev = true;
+logger.dev = false;
 
 // Execute and manipulate code when the page loads.
 
@@ -39,11 +39,6 @@ logger.log("Chrome extension is active.");
 
 let isChrome = typeof chrome !== "undefined" && typeof browser === "undefined";
 let ext = isChrome ? chrome : browser; // Extension API
-
-// TODO: add sliders for image parameters, for example:
-//       1 <= imageBlue <= 20 (px)
-//       1 <= imageOpacity < 100 (%)
-//       0.1 <= imageTransition <= 5 (s)
 
 const toPromise = (callback) => {
   const promise = new Promise((resolve, reject) => {
@@ -114,7 +109,7 @@ let customStyles = [];
 let styles = document.getElementsByTagName("style");
 for (i in Object.values(styles)) {
   let s = styles[i];
-  if (s && s.innerHTML && s.innerText.includes("._image_blur_class")) {
+  if (s && s.innerHTML && s.innerHTML.includes("._image_blur_class")) {
     customStyles.push(s);
   }
 }
