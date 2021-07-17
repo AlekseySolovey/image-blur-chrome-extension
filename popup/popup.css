@@ -1,0 +1,28 @@
+body {
+  width: 170px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #777;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-shadow: 1px 1px #000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #488df5;
+}
+.button:hover {
+  color: #000;
+  text-shadow: none;
+  background-color: #ddd;
+}
